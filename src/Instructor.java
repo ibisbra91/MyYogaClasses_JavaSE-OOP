@@ -1,4 +1,5 @@
 public class Instructor {
+
     static int id = 0;        //autoincrement
     String name;
     String style;
@@ -9,7 +10,7 @@ public class Instructor {
     // constructor por default
     Instructor(){
         System.out.println("Construyendo el Objeto Instructor con Constructor *VACÍO o por default*: ");
-        id++;                                                                                               //cuando cree uno, incrementa el valor de la variable es 1
+        id++;                                                                                               //cuando cree un objeto Instructor nuevo, incrementa el valor de la variable es 1
     }
 
     // constructor por inicialización
