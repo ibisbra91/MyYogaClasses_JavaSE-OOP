@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class UIMenu {
 
+    public static final String[] MONTHS = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+
 
     public static void showMenu(){
         System.out.println("Welcome to Our Yoga Classes");
@@ -51,8 +53,11 @@ public class UIMenu {
             response = Integer.parseInt(sc.nextLine());
 
             switch (response){
-                case 1:
+                case 1:                                                 //aquí, debería mostrar la lista de meses que tiene por ahí
                     System.out.println("::Book an class");
+                    for (int i = 0; i < 3; i++) {                       //para mostrar la lista de los 3 1eros meses
+                        System.out.println(i + ". " + MONTHS[i]);
+                    }
                     break;
                 case 2:
                     System.out.println("::My classes");
