@@ -11,9 +11,14 @@ public class Main {
         //el programa muestre una lista de meses, específicamente que muestre un bloque/lista de 3 meses =>que muestre los meses en bloques de trimestres (q).
         //De modo que el discípulo sólo pueda agendar clases durante un trimestre.
 
-        Instructor myInstructor = new Instructor("Ibis Brito", "Hatha Yoga");
+/*        Instructor myInstructor = new Instructor("Ibis Quezada", "Hatha Yoga");
         System.out.println(myInstructor.name);
-        System.out.println(myInstructor.style);
+        System.out.println(myInstructor.style);*/
+
+        Disciple myDiscipleIris = new Disciple("Iris Diaz", "idiaz@gmail.com");
+        String a = myDiscipleIris.name;
+        String b = myDiscipleIris.email;
+        System.out.println("This disciple is: " + a + ". Her email is: " + b);
 
 
         }
