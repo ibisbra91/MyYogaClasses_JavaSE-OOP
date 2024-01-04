@@ -2,6 +2,7 @@ public class Instructor {
 
     static int id = 0;        //autoincrement
     String name;
+    String email;       //agregado, pues el programa va a permitir elegir si soy un Instructor o si soy un Discípulo, y esa identificación será a partir de usar el email de cada uno.
     String style;
 
 //sobrecarga de métodos (de constructores en este caso)
