@@ -3,6 +3,36 @@ public class Main {
     public static void main(String[] args) {
 
 
+        //Comprendiendo memorias stack y memoria Heap. Su uso. Rendimiento. --> Variable vs. Objeto: Un vistazo a la memoria
+        int i = 0;
+        int b = 2;
+        i = b;
+        //b = 0
+
+        Disciple d1 = new Disciple("Roronoa Zoro", "espadachin@gmail.com");
+        Disciple d2 = new Disciple("Nami", "navegante@gmail.com");
+
+        System.out.println(d1);
+        System.out.println(d2);
+
+        System.out.println(d1.getName());
+        System.out.println(d2.getName());
+        d2 = d1;
+
+        System.out.println("\n");
+
+        System.out.println(d1.getName());      //el declarado inicialmente
+        System.out.println(d2.getName());      //el asignado posteriormente ( ambos el mismo valor post-asignación)
+
+        d2.setName("Nami-san");
+        System.out.println(d1.getName());
+        System.out.println(d2.getName());
+
+
+        System.out.println("\n");
+
+
+
         Instructor myInstructor = new Instructor("Amaya Sol Luna", "Hatha Yoga");
         System.out.println(myInstructor.name);
         System.out.println(myInstructor.style);
@@ -21,7 +51,7 @@ public class Main {
         /** @see
          * @see https://profile.es/blog/clases-wrapper-envoltorio-en-java/
          * @see */
-        int i = 0;                                     //i --> variable de tipo de datos Primitivo o simple (int)
+        int ii = 0;                                     //i --> variable de tipo de datos Primitivo o simple (int)
         String word = "wonder";                        //word -> OBJETO de tipo String. String es un caso de OBJETO de Java "atípico".
                                                        //STRING No es tipo de dato primitivo/simple de Java ni es clase wrapper, SÍ es un tipo de OBJETO de Java.
 
