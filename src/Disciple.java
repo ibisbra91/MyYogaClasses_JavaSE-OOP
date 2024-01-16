@@ -24,7 +24,7 @@ public class Disciple extends User{
         super(name, email);  //aquí 'super' hace referencia al método Constructor de la clase Padre/Superclase. Es decir, la clase Padre/Super clase tiene en su constructor 'name' e 'email', por loq ue dentro del 'super' en clase hija/subclase llamó esos 2 atributos que HEREDO de la Superclase/clase Padre.. NOTA: recordar que 'super' representa al OBJETO Padre.
                              //cada Disciple sigue teniendo su name y su email, sólo que ya no están declarados en esta clase; sino que están declarados en la Superclase/clase Padre, y de allí los HEREDA.
                              //esta práctica provee al código mejor VISIBILIDAD/LEGIBILIDAD y REUTILIZACIÓN DE CÓDIGO.
-        System.out.println("Construyendo el Objeto Disciple con Constructor *por inicialización*: " + name + " con email: " + email);
+        System.out.println("Construyendo el Objeto Disciple con Constructor *por inicialización*: " + name + " con email: " + email);  //esta línea es ejemplo de "Sobreescritura de constructor" pues en este construtor agrego más instrucción con esta línea de code al comportamiento que HEREDA/extiende de por sí esta clase hija(subclase) Disciple de la clase Padre(Superclase) User. Por ello, acá se evidencia un ejemplo de uso de uno de los pilares de la POO, que es el POLIMORFISMO.
 
     }
 
@@ -126,4 +126,8 @@ public class Disciple extends User{
         this.blood = blood;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "\n Age: " + birthday + "\n Weight: " + getWeight() + "\n Height: " + getHeight() + "\n Blood: " + blood;
+    }
 }

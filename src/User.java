@@ -52,10 +52,17 @@ public class User {       //integra las subclases 'Instructor' y 'Disciple' que 
 
     public void setPhoneNumber(String phoneNumber) {
         //this.phoneNumber = phoneNumber;
-        if(phoneNumber.length() > 8){
-            System.out.println("The phone number must be a maximum of 8 digits.");    //ej de una validación (VALIDO EN EL SET), dependerá de las Reglas del Negocio.
-        } else if(phoneNumber.length() == 8){
+        if(phoneNumber.length() > 14){
+            System.out.println("The phone number must be a maximum of 14 characters.");    //ej de una validación (VALIDO EN EL SET), dependerá de las Reglas del Negocio.
+        } else if(phoneNumber.length() == 14){
             this.phoneNumber = phoneNumber;
         }
     }
+
+                                @Override
+                                public String toString() {             //sólo escribí toString y el IDE me ayuda a sobreescribir el método, completándolo como está en la clase Padre OBJECT, para que haga mi sobreescritura aquí en la clase hija User
+                                    return "User: " + name + "\n Email: " + email + "\n Address: " + address + "\n Phone: " + phoneNumber;
+                                }
+
 }
+
