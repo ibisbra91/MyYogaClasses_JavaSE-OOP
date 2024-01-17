@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
       Disciple d1 = new Disciple("Roronoa Zoro", "espadachin@gmail.com");
-      String address = "Barcelona, Avenida Flores del Campo, edificio Mar y Costa, apto 198";
+      String address = "Ctra. de les Aigües, Parque: Paseo de las Aguas, Horta-Guinardó, 08035 Barcelona, España";
       d1.setAddress(address);
       String phone = "+52 95 659 236";
       d1.setPhoneNumber(phone);
@@ -17,7 +17,7 @@ public class Main {
       String blood = "AB+";
       d1.setBlood(blood);
 
-      System.out.println(d1);
+      System.out.println(d1);  //llama implícitamente al método toString() de ese objeto que quiero imprimir. Sería redundante escribirlo (en Java).
 
      /* Disciple d2 = new Disciple("Nami", "navegante@gmail.com");
 
@@ -40,18 +40,29 @@ public class Main {
 
         System.out.println("\n");
 
+        //showMenu();
 
-        Instructor myInstructor = new Instructor("Amaya Sol Luna", "Hatha Yoga");
+        Instructor myInstructor = new Instructor("Amaya Sol Luna", "amayasl@hotmail.com");
         myInstructor.addClass(new Date(),"6am");
         myInstructor.addClass(new Date(),"7am");
         myInstructor.addClass(new Date(),"8am");
 
+        String addressMyInstructor = "C/ Alonso Cano, 64, 03015 Alacant, Gym: Basic-Fit, Alicante, España";
+        myInstructor.setAddress(addressMyInstructor);
+        String phoneMyInstructor = "+52 94 856 378";
+        myInstructor.setPhoneNumber(phoneMyInstructor);
+        String styleMyInstructor = "Hatha Yoga";
+        myInstructor.setStyle(styleMyInstructor);
+
       //  System.out.println(myInstructor.getaA());
 
+/*
         for (Instructor.AvailableYogaClass aAA: myInstructor.getaA()) {
             System.out.println(aAA.getDate() + " " + aAA.getTime());
         }
+*/
 
+      System.out.println(myInstructor);
 
         }
 

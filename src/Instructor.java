@@ -6,14 +6,6 @@ import java.util.Date;
 public class Instructor extends User{
     private String style;  //atributo que hace unico a cada Instructor (elemento importante para la Lógica de la entidad/clase Instructor) es: el estilo predominante de yoga que imparte en su clase
 
-    //este grupo de atributos(id, name, email, address, phoneNumber) se va de aquí desde ahora, pues pretendo manejar los datos redundantes entre las Entidades/Clases 'Instructor' y 'Disciple' como clases Hija comunicadas con una clase Padre/Superclase 'User' (más propio del Negocio y de la POO)
-/*
-    static int id = 0;        //autoincrement //en principio lo declaré static para practicar el uso y comprensión de 'static' como Autoincrement y con_y_sin usando el import además. Ahora ya lo elimino porque mi plan es manejar este id utilizando una Base de Datos posteriormente.
-    private String name;
-    private String email;
-    private String address;     //parte del NEGOCIO:los datos 'address' y 'phoneNumber'  es útil que el Instructor los tenga pues tanto él como el Disciple serán Users de la app de reserva de clases de yoga, y estos 2 son datos requeridos para ellos comunicarse en esa app en construcción
-    private String phoneNumber;*/
-
     /*
     Instructor(){
         System.out.println("Construyendo el Objeto Instructor con Constructor *VACÍO o por default*: ");
@@ -47,6 +39,10 @@ public class Instructor extends User{
         System.out.println("ID Instructor: " + id);         //como id es 'static' puedo acceder a su valor sin escribir 'Instructor.id' dentro de la misma clase
     }*/
 
+    /** DESCRIPCIÓN: El objeto aA contiene la lista de clases de Yoga Disponibles del Instructor.
+     *  Es un array de AvailableYogaClass que he estado construyendo cada vez que añadí una clase.
+     *  Voy a estar convirtiendo al objeto/array aA en un toString() al sobreescribir el toString()
+     *  para que almacene los datos de cada clase.*/
     ArrayList<AvailableYogaClass> aA = new ArrayList<>();           //colección de OBJETOS de tipo AvailableYogaClass
 
     public void addClass(Date date, String time){                   //incrementa la lista de clases de yoga de ese Instructor
@@ -55,6 +51,11 @@ public class Instructor extends User{
 
     public ArrayList<AvailableYogaClass> getaA(){                   //devuelve la lista completa de clases de yoga
         return aA;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\n Style: " + style + "\n Available: " + aA.toString();      //para Instructor voy a reutilizar el comportamiento que ya está definido para el toString() en su superclase User y le añado que también muestre el valor de su atributo propio -> styley fecha con formato sencillo.
     }
 
     //NEGOCIO: un Instructor puede definir ciertas fechas en las que él está disponible. Un Instructor puede tener muchas clases disponibles.
@@ -93,6 +94,11 @@ public class Instructor extends User{
 
         public void setTime(String time) {
             this.time = time;
+        }
+
+        @Override
+        public String toString() {
+            return "Available Yoga Classes \n Date: "+ date + "\n Time: " + time;
         }
     }
 }
