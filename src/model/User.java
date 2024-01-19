@@ -1,10 +1,11 @@
+package model;
 
-                            //la Superclase es la que contiene los datos redundantes
-public class User {       //integra las subclases 'Instructor' y 'Disciple' que psan a ser clases Hijas(subclases) de esta clase Padre(Superclase) 'User'
+//la Superclase es la que contiene los datos redundantes
+public class User {       //integra las subclases 'model.Instructor' y 'model.Disciple' que psan a ser clases Hijas(subclases) de esta clase Padre(Superclase) 'model.User'
                           //contiene en principio, los atributos comunes/repetidosEnlasClasesHijas en ambas subclases: id, name, email, address, phoneNumber
     private int id;
     private String name;
-    private String email;   //agregado, pues el programa va a permitir elegir si soy un Instructor o si soy un Discípulo, y esa identificación será a partir de usar el email de cada uno.
+    private String email;   //agregado, pues el programa va a permitir elegir si soy un model.Instructor o si soy un Discípulo, y esa identificación será a partir de usar el email de cada uno.
     private String address;
     private String phoneNumber;
 
@@ -60,8 +61,8 @@ public class User {       //integra las subclases 'Instructor' y 'Disciple' que 
     }
 
                                 @Override
-                                public String toString() {             //sólo escribí toString y el IDE me ayuda a sobreescribir el método, completándolo como está en la clase Padre OBJECT, para que haga mi sobreescritura aquí en la clase hija User
-                                    return "User: " + name + "\n Email: " + email + "\n Address: " + address + "\n Phone: " + phoneNumber;
+                                public String toString() {             //sólo escribí toString y el IDE me ayuda a sobreescribir el método, completándolo como está en la clase Padre OBJECT, para que haga mi sobreescritura aquí en la clase hija model.User
+                                    return "model.User: " + name + "\n Email: " + email + "\n Address: " + address + "\n Phone: " + phoneNumber;
                                 }
 
 }

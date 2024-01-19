@@ -1,3 +1,6 @@
+import model.Disciple;
+import model.Instructor;
+
 import java.util.Date;
 
 public class Main {
@@ -19,7 +22,7 @@ public class Main {
 
       System.out.println(d1);  //llama implícitamente al método toString() de ese objeto que quiero imprimir. Sería redundante escribirlo (en Java).
 
-     /* Disciple d2 = new Disciple("Nami", "navegante@gmail.com");
+     /* model.Disciple d2 = new model.Disciple("Nami", "navegante@gmail.com");
 
         System.out.println(d1);
         System.out.println(d2);
@@ -57,7 +60,7 @@ public class Main {
       //  System.out.println(myInstructor.getaA());
 
 /*
-        for (Instructor.AvailableYogaClass aAA: myInstructor.getaA()) {
+        for (model.Instructor.AvailableYogaClass aAA: myInstructor.getaA()) {
             System.out.println(aAA.getDate() + " " + aAA.getTime());
         }
 */

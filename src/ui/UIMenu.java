@@ -13,8 +13,8 @@ public class UIMenu {
 
         int response = 0;
         do {
-            System.out.println("1. Instructor");
-            System.out.println("2. Disciple");
+            System.out.println("1. model.Instructor");
+            System.out.println("2. model.Disciple");
             System.out.println("0. Namasté");
             System.out.println("\n\n");
 
@@ -23,7 +23,7 @@ public class UIMenu {
 
             switch (response){
                 case 1:
-                    System.out.println("Instructor");
+                    System.out.println("model.Instructor");
                     break;
                 case 2:
                     response = 0;
@@ -44,7 +44,7 @@ public class UIMenu {
         int response = 0;
         do {
             System.out.println("\n\n");
-            System.out.println("Disciple");
+            System.out.println("model.Disciple");
             System.out.println("1. Book an class");
             System.out.println("2. My classes");
             System.out.println("0. Return");
