@@ -132,4 +132,11 @@ public class Disciple extends User{
     public String toString() {
         return super.toString() + "\n Age: " + birthday + "\n Weight: " + getWeight() + "\n Height: " + getHeight() + "\n Blood: " + blood;
     }
+    /** DESCRIPCIÓN: Este método brinda información acerca de los usuarios Disciple.*/
+    @Override
+    public void showDataUser() {
+        System.out.println("Discípulo");
+        System.out.println("Prácticas anteriores: holísticas, físicas.");
+        System.out.println("\n");
+    }
 }

@@ -1,10 +1,14 @@
 import model.Disciple;
 import model.Instructor;
+import model.Nutricionist;
+import model.User;
 
+import javax.jws.soap.SOAPBinding;
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
+
 
       Disciple d1 = new Disciple("Roronoa Zoro", "espadachin@gmail.com");
       String address = "Ctra. de les Aigües, Parque: Paseo de las Aguas, Horta-Guinardó, 08035 Barcelona, España";
@@ -38,12 +42,12 @@ public class Main {
 
         d2.setName("Nami-san");
         System.out.println(d1.getName());
-        System.out.println(d2.getName());*/
+        System.out.println(d2.getName());
 
 
         System.out.println("\n");
 
-        //showMenu();
+        //showMenu();  */
 
         Instructor myInstructor = new Instructor("Amaya Sol Luna", "amayasl@hotmail.com");
         myInstructor.addClass(new Date(),"6am");
@@ -57,6 +61,22 @@ public class Main {
         String styleMyInstructor = "Hatha Yoga";
         myInstructor.setStyle(styleMyInstructor);
 
+      System.out.println("\n");
+
+
+      //utilizando un 'modelo de polimorfismo' que consiste en: uso el objeto User instanciado como Instructor y Nutricionist PARA DARLE COMPORTAMIENTO a cada objeto de estos, pues NO ES POSIBLE crear un objeto User por sí sólo, pues la clase User es una clase ABSTACTA, y una de las reglas de las clases ABSTRACTAS es justo esa: no se puede crear instancias de ellas, pero sí las puedo usar así como 'modelo de polimorfismo'
+      //esto va perfecto con la lógica del Negocio, pues la clase User la agregué yo al código para favorecer las bondades de la POO en Java a través de usarla como clase ABSTRACTA,
+      //ya que la lógica del negocio sólo menciona a otras entidades como Instructor, Discípulo y Nutricionista y las relaciones entr ellas.
+      User userInstructor = new Instructor("Jinbe el Caballero del Mar", "jinbe@arsys.com");
+      userInstructor.showDataUser();
+
+      User userNutricionist = new Nutricionist("Vinsmoke Sanji", "sanji@indra.com");
+      userNutricionist.showDataUser();
+
+      User userDisciple = new Disciple("Marco el Ave Inmortal", "marco@bbva.com");
+      userDisciple.showDataUser();
+
+
       //  System.out.println(myInstructor.getaA());
 
 /*
@@ -65,7 +85,7 @@ public class Main {
         }
 */
 
-      System.out.println(myInstructor);
+      //System.out.println(myInstructor);
 
         }
 

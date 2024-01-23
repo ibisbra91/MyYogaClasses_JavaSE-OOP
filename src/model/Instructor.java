@@ -60,6 +60,19 @@ public class Instructor extends User{
         return super.toString() + "\n Style: " + style + "\n Available: " + aA.toString();      //para model.Instructor voy a reutilizar el comportamiento que ya está definido para el toString() en su superclase model.User y le añado que también muestre el valor de su atributo propio -> styley fecha con formato sencillo.
     }
 
+    //este método es OBLIGATORIO implementarlo pues esta clase hereda de la clase ABSTRACTA
+    //que lo definió como ABSTRACTO (es obligatorio implementralo
+    //en cada clase hija de la clase abstracta que es su Padre).
+    //Por ello acá en instructor estoy OBLIGADA  a implementarlo, y lo mismo aplica para las otras hijas de User: Disciple and Nutricionist.
+    /** DESCRIPCIÓN: Este método brinda información acerca de los usuarios Instructor.*/
+    @Override
+    public void showDataUser() {
+        System.out.println("Fundación donde se formó como Instructor de Instructores de Yoga:\n Escuela Internacional de la Cultura Ayurveda");
+        System.out.println("Sede: Barcelona");
+        System.out.println("Barrio: Gracia");
+        System.out.println("\n");
+    }
+
     //NEGOCIO: un model.Instructor puede definir ciertas fechas en las que él está disponible. Un model.Instructor puede tener muchas clases disponibles.
     //Las clases Helper (clases anidadas y 'static' dentro de otra clase externa) suelen usarse cuando así lo requiere la Lógica de Negocio,
     //o, cuando empiece detecte un atributo cuya estructura de datos empieza a tener muchos datos -> es  momento de analizarlo pues puede que en ese caso sea óptimo que sean declarados dentro de una clase anidada (y static o no) dentro de la clase inicial.'
