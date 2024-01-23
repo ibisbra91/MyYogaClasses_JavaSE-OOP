@@ -1,7 +1,4 @@
-import model.Disciple;
-import model.Instructor;
-import model.Nutricionist;
-import model.User;
+import model.*;
 
 import javax.jws.soap.SOAPBinding;
 import java.util.Date;
@@ -75,6 +72,36 @@ public class Main {
 
       User userDisciple = new Disciple("Marco el Ave Inmortal", "marco@bbva.com");
       userDisciple.showDataUser();
+
+      //uso de clase anónima, hack para usar la clase abtracta User para crear una instancia de ella.
+      //implica que sólo es utilizable dicha instancia 'user1' en este bloque,
+      //es decir, una vez la ejecución del programa pase este bloque, esa instancia de clase anónina user1 deja de existir para el programa.
+      //puedo invocar/llamar el método sobreescrito para usar temporalmente acá, sólo desde acá usando la instancia de la clase anónima
+      User user1 = new User("Eiichiro Oda","oda@creativo.com") {
+        @Override
+        public void showDataUser() {
+          String name = "Eiichiro Oda";
+          System.out.println("Instructor: " + name);
+          System.out.println("Fundación donde se formó como Instructor de Instructores de Yoga:\n GRUPO DE ENTRENAMIENTO del INSTITUTO NITEN KENDO-KENJUTSU y IAIJUTSU");
+          System.out.println("Sede: URUGUAY");
+          System.out.println("\n");
+        }
+      };
+
+      user1.showDataUser();
+
+/*
+      Ischedulable ischedu = new Ischedulable() {
+        @Override
+        public void Schedulable(Date date, String time) {
+
+        }
+      };
+
+      //lo uso con lambdas en sgte curso: Programación Funcional con Java, ahora mantengo el foco en lo que estoy para avanzar 😊 :
+      Ischedulable ischedu = new ClassInstructor();
+      System.out.println(ischedu.Schedulable());
+*/
 
 
       //  System.out.println(myInstructor.getaA());
