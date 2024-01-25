@@ -68,7 +68,7 @@ public class UIMenu {
 
         boolean emailCorrect = false;  //por default va a estar en falso, hasta que haga la verificación
         do{                             //y cambie a true
-            System.out.println("Insert your email. Example: qws@sdf.com");
+            System.out.println("Insert your email. Format: qws@sdf.com");
             Scanner sc = new Scanner(System.in);  //para leer lo que el user teclee
             String email = sc.nextLine();
             if(userType == 1){                     //si es 1, irá y verificará en el ArrayList<Instructor>. Si tuviera una BD, estos datos los tendría allí y me los traería con queries
