@@ -78,6 +78,8 @@ public class UIMenu {
                         //obtener los datos del user loggeado
                         instructorLoggead = i;
                         //showDoctorMenu
+                        UIInstructorMenu.showInstructorMenu();
+
 
                     }
                 }                                     //
@@ -112,6 +114,7 @@ public class UIMenu {
 
             switch (response){
                 case 1:                                                 //aquí, debería mostrar la lista de meses que tiene por ahí
+
                     System.out.println("::Book an class");
                     for (int i = 0; i < 3; i++) {                       //para mostrar la lista de los 3 1eros meses
                         System.out.println(i + ". " + MONTHS[i]);

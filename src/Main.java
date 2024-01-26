@@ -44,12 +44,12 @@ public class Main {
 
         System.out.println("\n");
 
-        //showMenu();  */
+        showMenu();  */
 
         Instructor myInstructor = new Instructor("Amaya Sol Luna", "amayasl@hotmail.com");
-        myInstructor.addClass(new Date(),"6am");
+/*        myInstructor.addClass(new Date(),"6am");
         myInstructor.addClass(new Date(),"7am");
-        myInstructor.addClass(new Date(),"8am");
+        myInstructor.addClass(new Date(),"8am");*/
 
         String addressMyInstructor = "C/ Alonso Cano, 64, 03015 Alacant, Gym: Basic-Fit, Alicante, España";
         myInstructor.setAddress(addressMyInstructor);

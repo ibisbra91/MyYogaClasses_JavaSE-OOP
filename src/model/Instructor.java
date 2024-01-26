@@ -1,5 +1,7 @@
 package model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -47,7 +49,7 @@ public class Instructor extends User{
      *  para que almacene los datos de cada clase.*/
     ArrayList<AvailableYogaClass> aA = new ArrayList<>();           //colección de OBJETOS de tipo AvailableYogaClass
 
-    public void addClass(Date date, String time){                   //incrementa la lista de clases de yoga de ese model.Instructor
+    public void addClass(String date, String time){                   //incrementa la lista de clases de yoga de ese model.Instructor
         aA.add(new Instructor.AvailableYogaClass(date, time));
     }
 
@@ -78,25 +80,40 @@ public class Instructor extends User{
     //o, cuando empiece detecte un atributo cuya estructura de datos empieza a tener muchos datos -> es  momento de analizarlo pues puede que en ese caso sea óptimo que sean declarados dentro de una clase anidada (y static o no) dentro de la clase inicial.'
     //una vía para resolverlo es crear un clase independiente para agendar/modificar una clase de yoga con determinado model.Instructor -> una clase anidada (Helper class) haría:
     public static class AvailableYogaClass{
-        private int id_AvailableClass;
+        private int id;
         private Date date;   //Available Class
         private String time;
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");              //esta clase permite FORMATEAR FECHAS y trabajar con ellas
+                                                                                           //con ella, puedo definir el formato de Date/String que será aceptado
 
-        public AvailableYogaClass(Date date, String time) {  //como mínimo una clase deberá tener fecha y hora
-            this.date = date;
+        public AvailableYogaClass(String date, String time) {  //como mínimo una clase de yoga deberá tener fecha y hora
+            //al estar haciendo este tipo de transformaciones de datos (de DAte a String con .parse(k))
+            //el IDE indica que debo prevenir y manejar una posible Exception
+
+            try {
+                this.date = format.parse(date);  //acá tengo un String que quiero que llegue a ser Date, para esto uso la clase SimpleDateFormat de Java
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
             this.time = time;
         }
 
         public int getId_AvailableClass() {
-            return id_AvailableClass;
+            return id;
         }
 
         public void setId_AvailableClass(int id_AvailableClass) {
-            this.id_AvailableClass = id_AvailableClass;
+            this.id = id_AvailableClass;
         }
 
-        public Date getDate() {
+        public Date getDate() {    //puede que lo use para mostrar los datos de una Fuente de Datos (en un formato de Date)
             return date;
+        }
+
+        /**DESCRIPCIÓN: Este método convierte la fecha 'DATE' que recibe por parámetro, de formato Date a String. */
+        public String getDate(String DATE) {  //para mostrar datos, puede que me resulte más útil menipular la date como String (que haga lo INVERSO)
+            return format.format(date);       //ejemplo de sobrecarga del método getDate()
+                                              //donde DATE funciona como flag
         }
 
         public void setDate(Date date) {
@@ -117,3 +134,14 @@ public class Instructor extends User{
         }
     }
 }
+
+  /*  Algunas veces necesitamos trabajar las fechas como tipo de dato Date y otras veces como String.
+        Para resolver esto podemos usar SimpleDateFormat.
+
+        SimpleDateFormat format = new SimpleDateFormat(pattern: "dd/MM/yyyy");
+
+// Transformar fechas de formato String a Date:
+        this.date = format.parse(dateAsString);
+
+// Transformar fechas de formato Date a String:
+        this.date = format.format(dateAsDate);*/
