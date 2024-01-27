@@ -8,6 +8,12 @@ import java.util.Date;
 public class Instructor extends User{
     private String style;
 
+    /** DESCRIPCIÓN: El objeto aA contiene la lista de clases de Yoga Disponibles del model.Instructor.
+     *  Es un array de AvailableYogaClass que he estado construyendo cada vez que añadí una clase.
+     *  Voy a estar convirtiendo al objeto/array aA en un toString() al sobreescribir el toString()
+     *  para que almacene los datos de cada clase.*/
+    private ArrayList<AvailableYogaClass> aA = new ArrayList<>();           //colección de OBJETOS de tipo AvailableYogaClass
+
     // constructor por inicialización
    public Instructor(String name, String email){
         super(name, email);
@@ -22,11 +28,6 @@ public class Instructor extends User{
         this.style = style;
     }
 
-    /** DESCRIPCIÓN: El objeto aA contiene la lista de clases de Yoga Disponibles del model.Instructor.
-     *  Es un array de AvailableYogaClass que he estado construyendo cada vez que añadí una clase.
-     *  Voy a estar convirtiendo al objeto/array aA en un toString() al sobreescribir el toString()
-     *  para que almacene los datos de cada clase.*/
-    ArrayList<AvailableYogaClass> aA = new ArrayList<>();           //colección de OBJETOS de tipo AvailableYogaClass
 
     public void addClass(String date, String time){                   //incrementa la lista de clases de yoga de ese model.Instructor
         aA.add(new Instructor.AvailableYogaClass(date, time));
@@ -74,14 +75,15 @@ public class Instructor extends User{
             this.id = id_AvailableClass;
         }
 
-        public Date getDate() {    //puede que lo use para mostrar los datos de una Fuente de Datos (en un formato de Date)
-            return date;
+        public Date getDate(String DATE) {    //puede que lo use para mostrar los datos de una Fuente de Datos (en un formato de Date)
+            return date;                      //optimizada esta función para devolver un String como fecha (ya no un Date, como anteriormente cuando no usabala SimpleDateFormat class de Java)
+                                              //donde DATE funciona como flag
         }
 
         /**DESCRIPCIÓN: Este método convierte la fecha 'DATE' que recibe por parámetro, de formato Date a String. */
-        public String getDate(String DATE) {  //para mostrar datos, puede que me resulte más útil menipular la date como String (que haga lo INVERSO)
+        public String getDate() {  //para mostrar datos, puede que me resulte más útil menipular la date como String (que haga lo INVERSO)
             return format.format(date);       //ejemplo de sobrecarga del método getDate()
-                                              //donde DATE funciona como flag
+
         }
 
         public void setDate(Date date) {
