@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class UIMenu {
 
     public static final String[] MONTHS = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    public static Instructor instructorLoggead;
+    public static Instructor instructorLogged;
     public static Disciple discipleLoggead;
 
     public static void showMenu(){
@@ -48,14 +48,12 @@ public class UIMenu {
         }while (response != 0);
     }
 
-    //acá manejo la authentication, simulando con uso de ArrayList<> que traigo datos de una Fuente de Datos
-    private static void authUser(int userType){  //userType indica el resultado final que deberia traer
+    /**DESCRIPCIÓN: Este método maneja la autenticación. Lo hago simulando que traigo datos de
+     * una Fuente de Datos, con uso de ArrayList<> .*/
+    private static void authUser(int userType){
         //userType = 1 Instructor
         //userType = 2 Disciple
-        //aquí quiero simular como si tuviera una lista de Instructores y otra de Discipuls
-        //simulación => como si fuera a mi capa de persistencia de datos y me trajera todos los usuarios
-        //que tengo registrados allí con queries, según el tipo de usuarios que sea:
-        // Instructor o Disciple O Nutricionist (Nutricionist lo hago luego)
+
         ArrayList<Instructor> instructors = new ArrayList<>();
         instructors.add(new Instructor("Edward Newgate","barbablanca@endava.com"));
         instructors.add(new Instructor("Shanks","pelirrojo@arsys.com"));
@@ -66,25 +64,24 @@ public class UIMenu {
         disciples.add(new Disciple("Carrot","mink@SignUp.es"));
         disciples.add(new Disciple("Tony Tony Chopper","renoMedicoWano@universalSolutionstech.uy"));
 
-        boolean emailCorrect = false;  //por default va a estar en falso, hasta que haga la verificación
-        do{                             //y cambie a true
-            System.out.println("Insert your email. Format: qws@sdf.com");
-            Scanner sc = new Scanner(System.in);  //para leer lo que el user teclee
+        boolean emailCorrect = false;
+        do{
+            System.out.println("Insert your email");
+            Scanner sc = new Scanner(System.in);
             String email = sc.nextLine();
-            if(userType == 1){                     //si es 1, irá y verificará en el ArrayList<Instructor>. Si tuviera una BD, estos datos los tendría allí y me los traería con queries
-                for (Instructor i: instructors) {  //tengo que recorrer todos los Instructors hasta encontrar el email que recibí, de modo que el email entrdao por el user haga match con alguno de los emails que ya tengo registrados/existen/persistencia de datos
+            if(userType == 1){
+                for (Instructor i: instructors) {
                     if(i.getEmail().equals(email)){
                         emailCorrect = true;
                         //obtener los datos del user loggeado
-                        instructorLoggead = i;
-                        //showDoctorMenu
+                        instructorLogged = i;
                         UIInstructorMenu.showInstructorMenu();
 
 
                     }
-                }                                     //
+                }
             }
-            if (userType == 2){                    //si es 2, irá y verificará en el ArrayList<Disciple>
+            if (userType == 2){
                 for (Disciple d: disciples){
                     if (d.getEmail().equals(email)){
                         emailCorrect = true;
@@ -113,10 +110,10 @@ public class UIMenu {
             response = Integer.parseInt(sc.nextLine());
 
             switch (response){
-                case 1:                                                 //aquí, debería mostrar la lista de meses que tiene por ahí
+                case 1:                                                 
 
                     System.out.println("::Book an class");
-                    for (int i = 0; i < 3; i++) {                       //para mostrar la lista de los 3 1eros meses
+                    for (int i = 0; i < 3; i++) {
                         System.out.println(i + ". " + MONTHS[i]);
                     }
                     break;
