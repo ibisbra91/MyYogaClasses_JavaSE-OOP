@@ -75,6 +75,7 @@ public class Instructor extends User{
             this.id = id_AvailableClass;
         }
 
+        /** DESCRIPCIÓN: Este método devuelve un objeto DATE.*/
         public Date getDate(String DATE) {    //puede que lo use para mostrar los datos de una Fuente de Datos (en un formato de Date)
             return date;                      //optimizada esta función para devolver un String como fecha (ya no un Date, como anteriormente cuando no usabala SimpleDateFormat class de Java)
                                               //donde DATE funciona como flag

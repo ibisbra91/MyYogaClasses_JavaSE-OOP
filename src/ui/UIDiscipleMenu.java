@@ -13,7 +13,7 @@ public class UIDiscipleMenu {
         do{
             System.out.println("\n\n");
             System.out.println("Disciple");
-            System.out.println("Welcome: " + UIMenu.discipleLoggead);
+            System.out.println("Welcome 💛: " + UIMenu.discipleLoggead);
             System.out.println("1. Book an Yoga Class");
             System.out.println("2. My Yoga Classes");
             System.out.println("0. Logout");
@@ -23,6 +23,7 @@ public class UIDiscipleMenu {
 
             switch (response){
                 case 1:
+                    showBookYogaClassMenu();
                     break;
                 case 2:
                     break;
@@ -34,7 +35,8 @@ public class UIDiscipleMenu {
         }while (response != 0);
     }
     /**DESCRIPCIÓN: Este método maneja la Lógica correspondiente a:
-     * adicionar clase de yoga disponible por parte del Disciple.*/
+     * adicionar clase de yoga disponible por parte del Disciple.
+     * Es decir, cuando el Disciple agenda una yoga class.*/
     private static void showBookYogaClassMenu(){
         int response = 0;
         do{
@@ -73,11 +75,60 @@ public class UIDiscipleMenu {
             //para que cuando tenga la fecha, saber qué instructor le muestro al user
             //(A qué Instructor le corresponde, esa fecha que ese user detectó?)
 
+            Map<Integer, Instructor> instructorAvailableSelected = instructors.get(responseDateSelected);
+            Integer indexDate = 0;
+            Instructor instructorSelected = new Instructor("","");
+
+            for (Map.Entry<Integer,Instructor> ins :instructorAvailableSelected.entrySet()) {
+                indexDate = ins.getKey();
+                instructorSelected = ins.getValue(); //obtuve los datos confirmados, para eso hice este recorrido
+            }
+            //le pido el índice de la fecha que seleccionó
+            //obteniendo el nombre, la fecha y el tiempo
+            System.out.println(instructorSelected.getName()
+                    + " Date: " + instructorSelected.getaA().get(indexDate).getDate()
+                    + " Time: " + instructorSelected.getaA().get(indexDate).getTime());
+
+            System.out.println("Confirm your Yoga Class: \n1. Yes \n2.Change Data");
+            response = Integer.valueOf(sc.nextLine());
+
+            //si confirma que es 1, viene la Lógica, para que se agende..
+            //.getDate(null) devuelve el objeto DATE que se precisa para hacer el schedule de la cita de la clase de yoga
+            if (response == 1){
+                UIMenu.discipleLoggead.addClassInstructors(
+                        instructorSelected,
+                        instructorSelected.getaA().get(indexDate).getDate(null),
+                        instructorSelected.getaA().get(indexDate).getTime());
+                //y, una vez ya se ejecutó la yoga class, muestro el menú nuevamente:
+                showDiscipleMenu();
 
 
+            }
 
+        }while (response != 0);
+    }
 
+    private static void showDiscipleYogaClass(){
+        int response = 0;
+        do {
+            System.out.println(" My Yoga Classes ");
+            //valido si el Disciple logueado NO tiene yoga class disponibles
+            if (UIMenu.discipleLoggead.getClassInstructors().size() == 0){
+                System.out.println("Don't have yoga classes");
+                break;
+            }
 
+            //pero si sí tiene el Disciple logueado SÍ tiene yoga class disponibles, se las muestro
+            for (int i = 0; i < UIMenu.instructorLogged.getaA().size(); i++) {
+                int j = i + 1;
+                System.out.println(j + ". " +
+                       " Date: " + UIMenu.discipleLoggead.getClassInstructors().get(i).getDate() +
+                       " Time: " + UIMenu.discipleLoggead.getClassInstructors().get(i).getTime() +
+                        "\n Instructor: " + UIMenu.discipleLoggead.getClassInstructors()
+                        .get(i).getInstructor().getName());
+                //mostré la fecha, la hora y el nombre del Instructor asociado
+            }
+            System.out.println("0. Sayonara 😋");
         }while (response != 0);
     }
 }

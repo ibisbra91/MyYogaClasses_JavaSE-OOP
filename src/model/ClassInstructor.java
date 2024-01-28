@@ -9,6 +9,11 @@ public class ClassInstructor implements Ischedulable{
     private Date date;
     private String time;
 
+    public ClassInstructor(Disciple disciple, Instructor instructor) {
+        this.disciple = disciple;
+        this.instructor = instructor;
+    }
+
     public int getId() {
         return id;
     }
@@ -42,7 +47,7 @@ public class ClassInstructor implements Ischedulable{
     }
 
     public String getTime() {
-        return time;
+        return time + " hrs.";
     }
 
     public void setTime(String time) {
@@ -51,6 +56,7 @@ public class ClassInstructor implements Ischedulable{
 
     @Override
     public void Schedulable(Date date, String time) {
-
+        this.date = date;
+        this.time = time;
     }
 }
