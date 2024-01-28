@@ -85,7 +85,9 @@ public class Disciple extends User{
 
     @Override
     public String toString() {
-        return super.toString() + "\n Age: " + birthday + "\n Weight: " + getWeight() + "\n Height: " + getHeight() + "\n Blood: " + blood;
+        return super.toString() + "\n Age: " + birthday +
+                "\n Weight: " + getWeight() + "\n Height: " +
+                getHeight() + "\n Blood: " + blood;
     }
     /** DESCRIPCIÓN: Este método brinda información acerca de los usuarios Disciple.*/
     @Override

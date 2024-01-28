@@ -13,7 +13,7 @@ public class UIDiscipleMenu {
         do{
             System.out.println("\n\n");
             System.out.println("Disciple");
-            System.out.println("Welcome 💛: " + UIMenu.discipleLoggead);
+            System.out.println("Welcome 💛: " + UIMenu.discipleLoggead.getName());
             System.out.println("1. Book an Yoga Class");
             System.out.println("2. My Yoga Classes");
             System.out.println("0. Logout");
@@ -26,6 +26,7 @@ public class UIDiscipleMenu {
                     showBookYogaClassMenu();
                     break;
                 case 2:
+                    showDiscipleYogaClass();
                     break;
                 case 0:
                     UIMenu.showMenu();
@@ -54,7 +55,8 @@ public class UIDiscipleMenu {
             Map<Integer, Map<Integer, Instructor>> instructors = new TreeMap<>();
             int k = 0;
             for (int i = 0; i < UIInstructorMenu.instructorsAvailableClasses.size(); i++) {
-                ArrayList<Instructor.AvailableYogaClass> availableClasses = UIInstructorMenu.instructorsAvailableClasses.get(i).getaA();
+                ArrayList<Instructor.AvailableYogaClass> availableClasses
+                        = UIInstructorMenu.instructorsAvailableClasses.get(i).getaA();
 
                 Map<Integer, Instructor> instructorClasses = new TreeMap<>();
 
@@ -64,7 +66,8 @@ public class UIDiscipleMenu {
                     System.out.println(k + ". " + availableClasses.get(j).getDate());  //dame las fechas
                     //por un lado capturo el índice del Instructor y por otro, capturo la fecha seleccionada
                     instructorClasses.put(Integer.valueOf(j), UIInstructorMenu.instructorsAvailableClasses.get(i));
-                    //esta nueva estructura de datos que estoy creando me va a ayudar a manipular  mejor la salida que le quiero dar a los users
+                    //esta nueva estructura de datos que estoy creando me va a ayudar a manipular
+                    // mejor la salida que le quiero dar a los users
                     instructors.put(Integer.valueOf(k), instructorClasses);
                 }
             }
@@ -93,7 +96,8 @@ public class UIDiscipleMenu {
             response = Integer.valueOf(sc.nextLine());
 
             //si confirma que es 1, viene la Lógica, para que se agende..
-            //.getDate(null) devuelve el objeto DATE que se precisa para hacer el schedule de la cita de la clase de yoga
+            //.getDate(null) devuelve el objeto DATE que se precisa para hacer el schedule de la cita de la clase
+            // de yoga
             if (response == 1){
                 UIMenu.discipleLoggead.addClassInstructors(
                         instructorSelected,
@@ -101,7 +105,6 @@ public class UIDiscipleMenu {
                         instructorSelected.getaA().get(indexDate).getTime());
                 //y, una vez ya se ejecutó la yoga class, muestro el menú nuevamente:
                 showDiscipleMenu();
-
 
             }
 

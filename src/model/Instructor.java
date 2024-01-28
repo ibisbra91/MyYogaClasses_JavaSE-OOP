@@ -39,7 +39,7 @@ public class Instructor extends User{
 
     @Override
     public String toString() {
-        return super.toString() + "\n Style: " + style + "\n Available: " + aA.toString();      //para model.Instructor voy a reutilizar el comportamiento que ya está definido para el toString() en su superclase model.User y le añado que también muestre el valor de su atributo propio -> styley fecha con formato sencillo.
+        return super.toString() + "\n Style: " + style + "\n Available: " + aA.toString();      //para model.Instructor voy a reutilizar el comportamiento que ya está definido para el toString() en su superclase model.User y le añado que también muestre el valor de su atributo propio -> style y fecha con formato sencillo.
     }
 
     /** DESCRIPCIÓN: Este método brinda información acerca de los usuarios Instructor.*/

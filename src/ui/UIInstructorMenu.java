@@ -10,7 +10,8 @@ public class UIInstructorMenu {
     /** Este ArrayList<..> contendrá sólo los instructores que tienen clases de yoga disponibles (agenda libre). */
     public static ArrayList<Instructor> instructorsAvailableClasses = new ArrayList<>();
 
-    /**DESCRPCIÓN: Este método se encarga de mostrar la Lógica de opciones para cada Instructor. A partir de que el Instructor ya hizo login. */
+    /**DESCRPCIÓN: Este método se encarga de mostrar la Lógica de opciones para cada Instructor.
+     * A partir de que el Instructor ya hizo login. */
     public static void showInstructorMenu(){
         int response = 0;
         do{
@@ -41,7 +42,8 @@ public class UIInstructorMenu {
 
     //Manejo toda la Lógica para Instructor
     //1. Add Available Yoga Class
-    /**DESCRIPCIÓN: Este método maneja la Lógica correspondiente a: adicionar clase de yoga disponible por parte del Instructor.*/
+    /**DESCRIPCIÓN: Este método maneja la Lógica correspondiente a: adicionar clase de yoga disponible
+     * por parte del Instructor.*/
     private static void showAddAvailableYogaClassMenu(){
         int response = 0;
         do{

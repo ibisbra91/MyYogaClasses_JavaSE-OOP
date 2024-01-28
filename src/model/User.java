@@ -60,7 +60,8 @@ public abstract class User {
 
                                 @Override
                                 public String toString() {
-                                    return "model.User: " + name + "\n Email: " + email + "\n Address: " + address + "\n Phone: " + phoneNumber;
+                                    return "model.User: " + name + "\n Email: " + email +
+                                            "\n Address: " + address + "\n Phone: " + phoneNumber;
                                 }
 /** DESCRIPCIÓN: Este método brinda información acerca de los usuarios. */
 public abstract void showDataUser();

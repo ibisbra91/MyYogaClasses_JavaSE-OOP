@@ -8,7 +8,8 @@ import java.util.Scanner;
 
 public class UIMenu {
 
-    public static final String[] MONTHS = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    public static final String[] MONTHS = {"January", "February", "March", "April", "May", "June", "July",
+                                           "August", "September", "October", "November", "December"};
     public static Instructor instructorLogged;
     public static Disciple discipleLoggead;
 
@@ -36,7 +37,7 @@ public class UIMenu {
                     response = 0;
                     System.out.println("Disciple");
                     authUser(2);
-                    //showDiscipleMenu();
+                    showDiscipleMenu();
 
                     break;
                 case 0:
@@ -57,12 +58,19 @@ public class UIMenu {
         ArrayList<Instructor> instructors = new ArrayList<>();
         instructors.add(new Instructor("Edward Newgate","barbablanca@endava.com"));
         instructors.add(new Instructor("Shanks","pelirrojo@arsys.com"));
-        instructors.add(new Instructor("Monkey D. Luffy","mugiwara@globant.com"));
+        instructors.add(new Instructor("Monkey D. Luffy","mugiwara@globant.es"));
+        instructors.add(new Instructor("Roronoa Zoro", "espadachin@sonda.uy"));
+        instructors.add(new Instructor("Vinsmoke Sanji","cocinero@indra.es"));
+
 
         ArrayList<Disciple> disciples = new ArrayList<>();
-        disciples.add(new Disciple("Kozuki Momonosuke","shogunWano@sonda.uy"));
-        disciples.add(new Disciple("Carrot","mink@SignUp.es"));
-        disciples.add(new Disciple("Tony Tony Chopper","renoMedicoWano@universalSolutionstech.uy"));
+        disciples.add(new Disciple("Jinbe", "timonel@bairesdev.arg"));
+        disciples.add(new Disciple("Nami","navegante@Intelcia.es"));
+        disciples.add(new Disciple("Nico Robin","arqueologa@telefonica.uy"));
+        disciples.add(new Disciple("Tony Tony Chopper", "medico@practia.uy"));
+        disciples.add(new Disciple("Cutty Flam Franky", "constructornaval@switch.es"));
+        disciples.add(new Disciple("Brook", "musico@bbva.es"));
+
 
         boolean emailCorrect = false;
         do{
@@ -87,7 +95,7 @@ public class UIMenu {
                         emailCorrect = true;
                         //obtener los datos del user loggeado
                         discipleLoggead = d;
-                        //showDiscipleMenu
+                        UIInstructorMenu.showInstructorMenu();
                     }
                 }
 
